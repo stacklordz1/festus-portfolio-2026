@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+
+  --color-glass-background: var(--glass-background);
+  --color-glass-border: var(--glass-border);
+
+  --font-manrope: var(--font-manrope);
+  --font-syne: var(--font-syne);
+}
+
+/* ─────────────────────────────────────────
+   DARK THEME — DEFAULT
+───────────────────────────────────────── */
+
+:root {
+  /* Background */
+  --background: #080808;
+  --foreground: #f5f5f5;
+
+  /* Surfaces */
+  --surface: #101010;
+  --surface-raised: #171717;
+
+  /* Text */
+  --text-primary: #f5f5f5;
+  --text-secondary: #a3a3a3;
+  --text-muted: #666666;
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  /* Glass */
+  --glass-background: rgba(255, 255, 255, 0.045);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  /* Grid */
+  --grid-color: rgba(255, 255, 255, 0.045);
+
+  /* Glow */
+  --glow-color: rgba(255, 255, 255, 0.35);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ─────────────────────────────────────────
+   LIGHT THEME
+───────────────────────────────────────── */
+
+.light {
+  --background: #f5f5f5;
+  --foreground: #111111;
+
+  /* Surfaces */
+  --surface: #ffffff;
+  --surface-raised: #eeeeee;
+
+  /* Text */
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+
+  /* Borders */
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.14);
+
+  /* Glass */
+  --glass-background: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(0, 0, 0, 0.08);
+
+  /* Grid */
+  --grid-color: rgba(0, 0, 0, 0.055);
+
+  /* Glow */
+  --glow-color: rgba(255, 255, 255, 0.8);
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ─────────────────────────────────────────
+   BASE
+───────────────────────────────────────── */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope);
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+/* ─────────────────────────────────────────
+   GLOBAL GRID
+───────────────────────────────────────── */
+
+body {
+  background-color: var(--background);
+
+  background-image:
+    linear-gradient(
+      135deg,
+      transparent 49.8%,
+      var(--grid-color) 50%,
+      transparent 50.2%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 49.8%,
+      var(--grid-color) 50%,
+      transparent 50.2%
+    );
+
+  background-size: 420px 420px;
+}
+
+/* Display font */
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-syne);
+}
+
+.font-display {
+  font-family: var(--font-syne);
+}
+
+/* Selection */
+
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* ─────────────────────────────────────────
+   GLASS
+───────────────────────────────────────── */
+
+.glass {
+  background: var(--glass-background);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─────────────────────────────────────────
+   GLOW
+───────────────────────────────────────── */
+
+.glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 9999px;
+  background: var(--glow-color);
+  filter: blur(140px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────
+   SCROLLBAR
+───────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 999px;
+}
