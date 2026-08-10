@@ -1,6 +1,6 @@
 import { navigation } from "@/app/lib/navigation"
 import { ArrowRight } from "lucide-react"
-'s enough for
+
 
 const Navbar = () => {
   return (
