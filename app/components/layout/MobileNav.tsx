@@ -15,10 +15,10 @@ const Navbar = () => {
     <nav
       className="
         glass
-        hidden
         fixed top-6 left-1/2 z-50
+        hidden md:flex
         -translate-x-1/2
-        flex items-center
+        items-center
         gap-3
         rounded-2xl
         px-3 py-3

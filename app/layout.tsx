@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Manrope, Syne } from "next/font/google";
+
 import "./globals.css";
+
 import Navbar from "./components/layout/Navbar";
+import ThemeProvider from "./components/provider/theme-provider";
+import MobileNav from "./components/layout/MobileNav";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -15,8 +19,6 @@ const syne = Syne({
   display: "swap",
 });
 
-
-
 export const metadata: Metadata = {
   title: {
     default: "Festus — Full-Stack Developer",
@@ -25,19 +27,29 @@ export const metadata: Metadata = {
 
   description:
     "Portfolio of Festus, a developer building modern web experiences, applications, and useful digital tools.",
-
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html suppressHydrationWarning
-      lang="en"
-      className={`${manrope.variable} ${syne.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col ">
-        <Navbar/>
-        {children}
-        </body>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`
+          ${manrope.variable}
+          ${syne.variable}
+          min-h-screen
+          antialiased
+        `}
+      >
+        <ThemeProvider>
+          <Navbar />
+          <MobileNav/>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
