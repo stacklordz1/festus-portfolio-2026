@@ -52,7 +52,7 @@ export default function Hero() {
 
             <motion.div 
              variants={fadeUp}
-            className="mt-8 rounded-2xl px-8 py-10
+            className="mt-8 rounded-2xl px-6 py-10
             shadow-[0_0_40px_-10px_rgba(255,255,255,0.1)]">
                 <motion.h1   variants={fadeUp}
                 className="font-syne text-4xl sm:text-5xl tracking-tight leading-[1.1] text-text-secondary">
@@ -75,7 +75,7 @@ export default function Hero() {
              while helping build Pantheon from the ground up.
                 </motion.p>
 
-            <motion.div  variants={fadeUp}
+            <motion.div  variants={fadeUp}x
             className="mt-8 flex  items-center gap-3">
                 <Button className="rounded-full group  px-6 font-bold">
                     <Link href='#projects' className="inline-flex items-center gap-2">
