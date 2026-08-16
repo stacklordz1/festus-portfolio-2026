@@ -1,0 +1,125 @@
+'use client'
+
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+import { Button } from "../ui/button"
+import { useEffect, useState } from "react"
+
+// Terminal/dashboard-style hero. No large photo — a small avatar tucked
+// into the terminal's title bar instead. The "typing" name and the
+// stat cards are the visual anchors, which fits a "systems thinker"
+// framing better than a portrait hero.
+//
+// Swap: the name in the typewriter effect, the stat numbers/labels,
+// avatar src, and the three CTA hrefs.
+
+const STATS = [
+  { label: "Years coding", value: "8+" },
+  { label: "Projects shipped", value: "20+" },
+  { label: "Currently", value: "Building Pantheon" },
+]
+
+const NAME = "Hi Festus Yourname"
+
+export default function Hero() {
+  const [typed, setTyped] = useState("")
+
+  useEffect(() => {
+    let i = 0
+    const interval = setInterval(() => {
+      i++
+      setTyped(NAME.slice(0, i))
+      if (i === NAME.length) clearInterval(interval)
+    }, 60)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <section className="relative max-w-5xl mx-auto px-6 pt-44 pb-24">
+      {/* Status badge */}
+      <div className="inline-flex items-center gap-2 rounded-full border border-border-strong px-4 py-1.5 text-xs font-medium tracking-wide text-text-secondary">
+        <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+        BUILDING &middot; OPEN TO WORK
+      </div>
+
+      {/* Terminal window */}
+      <div className="mt-8 rounded-2xl border border-border-strong glass overflow-hidden">
+        {/* Title bar */}
+        <div className="flex items-center gap-3 border-b border-border-strong px-4 py-3">
+          <div className="flex gap-1.5">
+            <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+            <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+            <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
+          </div>
+          <div className="ml-2 flex items-center gap-2 text-xs text-text-secondary font-mono">
+            <div className="relative h-5 w-5 overflow-hidden rounded-full border border-border-strong">
+              <Image
+                src="/avatar.jpg"
+                alt="Festus"
+                width={20}
+                height={20}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            festus.dev — zsh
+          </div>
+        </div>
+
+        {/* Body */}
+        <div className="px-6 py-8 sm:px-10 sm:py-12 font-mono">
+          <p className="text-text-secondary text-sm">
+            <span className="text-green-500">➜</span> ~ whoami
+          </p>
+          <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-text-primary tracking-tight">
+            {typed}
+            <span className="inline-block w-[3px] h-9 sm:h-11 ml-1 bg-text-primary align-middle animate-pulse" />
+          </h1>
+
+          <p className="mt-6 text-text-secondary text-sm">
+            <span className="text-green-500">➜</span> ~ cat about.txt
+          </p>
+          <p className="mt-3 max-w-xl text-base text-text-secondary/90 leading-relaxed font-[Manrope]">
+            Full-Stack Founder &middot; Pantheon Venture Studio. Hybrid
+            founder-engineer: developer, AI builder, systems thinker.
+            Building systems that leave a permanent mark.
+          </p>
+
+          {/* Stats row — like a status/output block */}
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {STATS.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-xl border border-border-strong bg-white/[0.03] px-4 py-3"
+              >
+                <div className="text-lg font-bold text-text-primary">{stat.value}</div>
+                <div className="text-xs text-text-secondary mt-0.5">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA row */}
+          <div className="mt-8 flex flex-wrap items-center gap-3 font-[Manrope]">
+            <Button asChild className="rounded-full px-6">
+              <Link href="#projects">
+                View Projects
+                <ArrowRight size={16} className="ml-1" />
+              </Link>
+            </Button>
+
+            <Button asChild variant="outline" className="rounded-full px-6">
+              <Link href="#contact">Get in touch</Link>
+            </Button>
+
+            <Button asChild variant="outline" className="rounded-full px-6">
+              <a href="/resume.pdf" target="_blank">
+                Résumé
+                <ArrowRight size={16} className="ml-1" />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
