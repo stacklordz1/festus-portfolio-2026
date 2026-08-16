@@ -4,16 +4,16 @@ import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import {ArrowRight} from 'lucide-react'
 import Link from "next/link";
-import {motion} from 'framer-motion'
+import {motion, Variants} from 'framer-motion'
 
-const container = {
+const container: Variants = {
   hidden: {},
   show: {
     transition: { staggerChildren: 0.12, delayChildren: 0.7 },
   },
 }
  
-const fadeUp = {
+const fadeUp :Variants = {
   hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeInOut" } },
 }
@@ -70,7 +70,7 @@ export default function Hero() {
 
                 <motion.p  variants={fadeUp}
                 className="mt-4 text-sm text-text-secondary font-[Manrope] leading-relaxed">
-            I build software to solve real problems and make people's lives
+            I build software to solve real problems and make people&apos;s lives
             a little easier — currently shipping personal projects,
              while helping build Pantheon from the ground up.
                 </motion.p>
