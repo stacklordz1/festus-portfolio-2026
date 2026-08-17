@@ -75,7 +75,7 @@ export default function Hero() {
              while helping build Pantheon from the ground up.
                 </motion.p>
 
-            <motion.div  variants={fadeUp}x
+            <motion.div  variants={fadeUp}
             className="mt-8 flex  items-center gap-3">
                 <Button className="rounded-full group  px-6 font-bold">
                     <Link href='#projects' className="inline-flex items-center gap-2">

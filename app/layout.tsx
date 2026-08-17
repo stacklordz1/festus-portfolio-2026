@@ -21,7 +21,7 @@ const syne = Syne({
 
 export const metadata: Metadata = {
   title: {
-    default: "Festus — Full-Stack Developer",
+    default: "Festus Jnr — Full-Stack Developer",
     template: "%s | Festus",
   },
 

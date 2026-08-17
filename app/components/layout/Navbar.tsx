@@ -10,7 +10,7 @@ import { useMotionValueEvent, useScroll, motion } from "framer-motion";
 
 
 export default function Navbar() {
-    const [activeHref, setActiveHref] = useState("#about");  
+    const [activeHref, setActiveHref] = useState("");  
     const [barHidden, setBarHidden] = useState(false)
 
     const {scrollY} = useScroll()
