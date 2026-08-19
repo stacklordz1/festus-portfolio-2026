@@ -36,7 +36,7 @@ const fadeUp: Variants = {
 };
 
 const statusStyles: Record<Project["status"], string> = {
-  live: "bg-green-500",
+  live: "bg-green-500 animate-pulse",
   "in-progress": "bg-yellow-500",
 };
 
