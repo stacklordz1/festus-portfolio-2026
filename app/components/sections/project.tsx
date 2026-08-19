@@ -1,4 +1,3 @@
-// app/components/sections/Projects.tsx
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
@@ -107,13 +106,14 @@ export default function Projects() {
                     className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
                   >
                     <Card
-                      className="group h-full overflow-hidden rounded-[1.5rem] border-border bg-background/40
+                      className="group h-full overflow-hidden rounded-3xl border-border bg-background/40
                         p-1.5 shadow-xl backdrop-blur-sm transition-all duration-500 hover:-translate-y-2
                         hover:border-border-strong hover:shadow-2xl
                       "
                     >
                       <CardContent className="p-0">
-                        <div className="relative aspect-video overflow-hidden rounded-[1.15rem]">
+                        {/* Image — badges + link overlay only */}
+                        <div className="relative aspect-video overflow-hidden rounded-t-[1.15rem]">
                           <Image
                             src={project.image}
                             alt={`${project.title} project preview`}
@@ -121,7 +121,7 @@ export default function Projects() {
                             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                           />
 
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
 
                           {/* Top row — number, status, type, link */}
                           <div className="absolute left-4 right-4 top-4 flex items-center justify-between">
@@ -157,26 +157,26 @@ export default function Projects() {
                               <ArrowUpRight size={18} />
                             </a>
                           </div>
+                        </div>
 
-                          {/* Project info + tech tags */}
-                          <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-                            <h3 className="font-syne text-xl font-semibold tracking-tight text-white md:text-2xl">
-                              {project.title}
-                            </h3>
-                            <p className="mt-1 max-w-sm font-[Manrope] text-sm leading-5 text-white/60">
-                              {project.description}
-                            </p>
+                        {/* Content — below the image */}
+                        <div className="p-5 md:p-6">
+                          <h3 className="font-syne text-xl font-semibold tracking-tight text-text-primary md:text-2xl">
+                            {project.title}
+                          </h3>
+                          <p className="mt-1 font-[Manrope] text-sm leading-5 text-text-secondary">
+                            {project.description}
+                          </p>
 
-                            <div className="mt-3 flex flex-wrap gap-1.5">
-                              {project.tech.map((t) => (
-                                <span
-                                  key={t}
-                                  className="rounded-full border border-white/15 bg-black/30 px-2.5 py-1 font-[Manrope] text-[10px] text-white/60 backdrop-blur-md"
-                                >
-                                  {t}
-                                </span>
-                              ))}
-                            </div>
+                          <div className="mt-4 flex flex-wrap gap-1.5">
+                            {project.tech.map((t) => (
+                              <span
+                                key={t}
+                                className="rounded-full border border-border bg-background/40 px-2.5 py-1 font-[Manrope] text-[10px] text-text-secondary"
+                              >
+                                {t}
+                              </span>
+                            ))}
                           </div>
                         </div>
                       </CardContent>

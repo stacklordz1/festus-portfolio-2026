@@ -1,4 +1,3 @@
-// app/data/skills.ts
 import {
   SiJavascript,
   SiTypescript,

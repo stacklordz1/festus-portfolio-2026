@@ -6,7 +6,7 @@ import { Button } from "../ui/button"
 import { ArrowRight, Menu, X } from "lucide-react"
 import { navigation } from "@/app/lib/navigation"
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion"
-import { socials } from "@/app/data/socials"
+import { socials } from "@/app/data/contacts"
 
 export default function MobileNav() {
   const [isOpen, setOpen] = useState(false)

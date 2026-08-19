@@ -1,4 +1,4 @@
-// app/components/sections/Skills.tsx
+
 "use client";
 
 import { skills } from "../../data/skill";
