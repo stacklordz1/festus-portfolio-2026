@@ -1,114 +1,80 @@
-// import {
-//   SiHtml5,
-// //   SiCss3,
-//   SiJavascript,
-//   SiReact,
-//   SiNextdotjs,
-//   SiTailwindcss,
-//   SiNodedotjs,
-//   SiExpress,
-//   SiMongodb,
-//   SiMysql,
-//   SiPython,
-//   SiReact as SiReactNative,
-//   SiExpo,
-//   SiGit,
-//   SiGithub,
-// } from "react-icons/si";
+// app/data/skills.ts
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiHtml5,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiGit,
+  SiGithub,
+  SiFramer,
+} from "react-icons/si";
+import { Database, Layers, Sparkles, Workflow } from "lucide-react";
+import type { IconType } from "react-icons";
+import type { LucideIcon } from "lucide-react";
+import { IoLogoCss3 } from "react-icons/io5";
 
-// export const skillGroups = [
-//   {
-//     title: "Frontend",
-//     description: "Building responsive and interactive interfaces.",
-//     skills: [
-//       {
-//         name: "HTML",
-//         icon: SiHtml5,
-//       },
-//       {
-//         name: "CSS",
-//         // icon: SiCss3,
-//       },
-//       {
-//         name: "JavaScript",
-//         icon: SiJavascript,
-//       },
-//       {
-//         name: "React",
-//         icon: SiReact,
-//       },
-//       {
-//         name: "Next.js",
-//         icon: SiNextdotjs,
-//       },
-//       {
-//         name: "Tailwind CSS",
-//         icon: SiTailwindcss,
-//       },
-//     ],
-//   },
+export type Skill = {
+  name: string;
+  icon?: IconType | LucideIcon;
+};
 
-//   {
-//     title: "Backend",
-//     description: "Building APIs, servers and working with data.",
-//     skills: [
-//       {
-//         name: "Node.js",
-//         icon: SiNodedotjs,
-//       },
-//       {
-//         name: "Express",
-//         icon: SiExpress,
-//       },
-//       {
-//         name: "MongoDB",
-//         icon: SiMongodb,
-//       },
-//       {
-//         name: "SQL",
-//         icon: SiMysql,
-//       },
-//     ],
-//   },
+export type SkillCategory = {
+  category: string;
+  skills: Skill[];
+};
 
-//   {
-//     title: "Mobile",
-//     description: "Creating cross-platform mobile experiences.",
-//     skills: [
-//       {
-//         name: "React Native",
-//         icon: SiReactNative,
-//       },
-//       {
-//         name: "Expo",
-//         icon: SiExpo,
-//       },
-//     ],
-//   },
-
-//   {
-//     title: "Tools",
-//     description: "Tools I use to build, ship and collaborate.",
-//     skills: [
-//       {
-//         name: "Git",
-//         icon: SiGit,
-//       },
-//       {
-//         name: "GitHub",
-//         icon: SiGithub,
-//       },
-//     ],
-//   },
-
-//   {
-//     title: "Currently Exploring",
-//     description: "Going deeper into automation and intelligent software.",
-//     skills: [
-//       {
-//         name: "Python",
-//         icon: SiPython,
-//       },
-//     ],
-//   },
-// ];
+export const skills: SkillCategory[] = [
+  {
+    category: "Languages",
+    skills: [
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Python", icon: SiPython },
+      { name: "SQL", icon: Database },
+    ],
+  },
+  {
+    category: "Frontend",
+    skills: [
+      { name: "HTML", icon: SiHtml5 },
+      { name: "CSS", icon: IoLogoCss3 },
+      { name: "React", icon: SiReact },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "React Native", icon: SiReact },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+    ],
+  },
+  {
+    category: "Backend",
+    skills: [
+      { name: "Node.js", icon: SiNodedotjs },
+      { name: "Express.js", icon: SiExpress },
+      { name: "MongoDB", icon: SiMongodb },
+    ],
+  },
+  {
+    category: "Stack",
+    skills: [{ name: "MERN", icon: Layers }],
+  },
+  {
+    category: "Tools",
+    skills: [
+      { name: "Git", icon: SiGit },
+      { name: "GitHub", icon: SiGithub },
+      { name: "Framer Motion", icon: SiFramer },
+    ],
+  },
+  {
+    category: "Exploring",
+    skills: [
+      { name: "AI", icon: Sparkles },
+      { name: "Automation", icon: Workflow },
+    ],
+  },
+];
