@@ -12,7 +12,7 @@ export const chapters: Chapter[] = [
     paragraphs: [
       "I didn't plan to become a software engineer.",
       "I've always been interested in computers, but for a long time, I never really thought about programming as something I would pursue seriously.",
-      "That changed back in SS1.",
+      "That changed back in my senior secondary education.",
       "One day in my school's ICT lab, I noticed a friend watching a Bro Code HTML tutorial. I was curious about what he was doing, so I started watching too. That curiosity eventually pushed me to try HTML for myself.",
     ],
   },
