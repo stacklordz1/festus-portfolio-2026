@@ -97,7 +97,7 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
-            className="mt-20"
+            className="mt-20 flex flex-col md:flex-row items-center gap-8 "
           >
             <Link
               href="/#contact"
@@ -105,6 +105,19 @@ export default function AboutPage() {
             >
               Let&apos;s talk
               <ArrowRight
+                size={16}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Link>
+
+            <Link
+             className="group inline-flex items-center gap-2 rounded-full border border-border bg-background/40 px-6 py-3 font-[Manrope] text-sm text-text-primary backdrop-blur-sm transition-all duration-300 hover:border-border-strong"
+                href="https://youtube.com/@festus_dev"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                 Visit my YouTube channel
+                 <ArrowRight
                 size={16}
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />

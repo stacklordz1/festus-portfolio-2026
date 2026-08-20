@@ -8,6 +8,7 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { motion, Variants } from "framer-motion";
+import { useState } from "react";
 
 const container: Variants = {
   hidden: {},
@@ -27,7 +28,50 @@ const fadeUp: Variants = {
   },
 };
 
+
+
 export default function Contact() {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>)=>{
+  e.preventDefault();
+  const form = e.currentTarget;
+  setStatus('loading')  
+
+  const formData = new FormData(form)
+  
+   const data = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    message: formData.get("message"),
+   };
+
+   try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+
+  console.log("API response:", result);
+  console.log("API status:", res.status);
+
+      if (!res.ok) {
+  throw new Error(result.error || "Failed to send message");
+}
+
+      setStatus("success");
+      form.reset();
+    } catch(error) {
+      console.log("frontend contact error:", error);
+      
+      setStatus("error");
+    }
+  };
+
+
   return (
     <section
       id="contact"
@@ -68,7 +112,7 @@ export default function Contact() {
           </motion.p>
 
           {/* Two-column: socials + form */}
-          <div className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 ">
             {/* Left — socials grid */}
             <motion.div
               variants={container}
@@ -107,7 +151,7 @@ export default function Contact() {
             <motion.div variants={fadeUp}>
               <Card className="border-border bg-background/40 backdrop-blur-sm">
                 <CardContent className="p-6">
-                  <form className="space-y-4">
+                  <form className="space-y-4" onSubmit={handleSubmit}>
                     <div>
                       <label
                         htmlFor="name"
@@ -158,9 +202,20 @@ export default function Contact() {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full rounded-full">
-                      Send Message
-                    </Button>
+     <Button type="submit" className="w-full rounded-full" disabled={status === "loading"}>
+        {status === "loading" ? "Sending..." : "Send Message"}
+      </Button>
+
+      {status === "success" && (
+        <p className="text-center text-sm text-green-500">
+          Message sent — I&apos;ll get back to you soon.
+        </p>
+      )}
+      {status === "error" && (
+        <p className="text-center text-sm text-red-500">
+          Something went wrong — try emailing me directly instead.
+        </p>
+      )}
                   </form>
                 </CardContent>
               </Card>

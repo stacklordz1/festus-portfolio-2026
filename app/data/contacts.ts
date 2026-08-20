@@ -16,7 +16,7 @@ type SocialProps = {
   icon: IconType | LucideIcon;
 };
 
-export const email = "your@email.com";
+export const email = "chidubemoffiaukwu2@gmail.com";
 
 export const socials: SocialProps[] = [
   {
@@ -26,27 +26,27 @@ export const socials: SocialProps[] = [
   },
   {
     label: "GitHub",
-    href: "https://github.com/your-username",
+    href: "https://github.com/stacklordz1",
     icon: FaGithub,
   },
   {
     label: "LinkedIn",
-    href: "https://linkedin.com/in/your-username",
+    href: "https://www.linkedin.com/in/chidubem-festus-jnr-offiaukwu-5565643a5/",
     icon: FaLinkedinIn,
   },
   {
     label: "Twitter",
-    href: "https://twitter.com/your-username",
+    href: "https://twitter.com/@festus_jnr08",
     icon: FaXTwitter,
   },
   {
     label: "YouTube",
-    href: "https://youtube.com/@your-channel",
+    href: "https://youtube.com/@festus_dev",
     icon: FaYoutube,
   },
   {
     label: "Instagram",
-    href: "https://instagram.com/your-username",
+    href: "https://instagram.com/buildwithfestus",
     icon: FaInstagram,
   },
 ];
