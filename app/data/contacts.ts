@@ -31,7 +31,7 @@ export const socials: SocialProps[] = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/chidubem-festus-jnr-offiaukwu-5565643a5/",
+    href: "https://www.linkedin.com/in/chidubem-festus-jnr-offiaukwu-5565643a5",
     icon: FaLinkedinIn,
   },
   {

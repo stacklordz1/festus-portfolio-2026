@@ -2,11 +2,19 @@
 import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
+  const BASE_URL = "https://festus-jnr-portfolio.vercel.app"
   return {
-    rules: {
+    rules:[
+     {
       userAgent: "*",
-      allow: "/",
+      allow: ["/", "/about"],
+      disallow: "/api"
     },
-    sitemap: "https://festus-jnr-portfolio.vercel.app//sitemap.xml",
+     {
+      userAgent: "Googlebot",
+      allow: ["/", "/about"],
+      disallow: "/api"
+    },],
+    sitemap: `${BASE_URL}/sitemap.xml`,
   };
 }
